@@ -1,14 +1,14 @@
 repos:
 - repo: https://github.com/psf/black
-  rev: 24.4.2
+  rev: 25.1.0
   hooks: [{ id: black }]
 - repo: https://github.com/astral-sh/ruff-pre-commit
-  rev: v0.5.5
+  rev: v0.12.12
   hooks:
     - id: ruff
-      args: ["--fix", "--exit-non-zero-on-fix=false"]
+      args: ["--fix", "--show-fixes"]   # ← no '--exit-non-zero-on-fix'
 - repo: https://github.com/pre-commit/mirrors-mypy
-  rev: v1.10.0
+  rev: v1.17.1
   hooks: [{ id: mypy, additional_dependencies: ["pydantic>=2"] }]
 - repo: https://github.com/Yelp/detect-secrets
   rev: v1.5.0
