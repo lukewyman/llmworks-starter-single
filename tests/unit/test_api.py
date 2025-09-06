@@ -1,4 +1,3 @@
-# tests/unit/test_api.py
 from fastapi.testclient import TestClient
 from llmworks_starter_single.contracts.hello import HelloQuery
 from llmworks_starter_single.main import app

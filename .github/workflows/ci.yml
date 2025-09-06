@@ -4,13 +4,14 @@ name: ci
 on: [pull_request, push]
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest    
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
-      - run: pip install -e .[dev]
-      - run: ruff check .
-      - run: black --check .
-      - run: mypy .
-      - run: pytest -q --cov=app --cov-report=term-missing
+      - run: pip install uv
+      - run: uv pip install -e .[dev]          # fast install
+      - run: uv run ruff check .
+      - run: uv run black --check .
+      - run: uv run mypy .
+      - run: uv run pytest -q --cov=llmworks_starter_single --cov-report=term-missing
